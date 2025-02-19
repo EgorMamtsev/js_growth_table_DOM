@@ -11,7 +11,7 @@ addColumnsBtn.addEventListener('click', addColumns);
 removeRowsBtn.addEventListener('click', removeRows);
 removeColumnsBtn.addEventListener('click', removeColumns);
 
-function addColumns() {
+function addRows() {
   const columnCount = body.children.length;
 
   if (columnCount < 10) {
@@ -30,7 +30,7 @@ function addColumns() {
   }
 }
 
-function removeColumns() {
+function removeRows() {
   const columnCount = body.children.length;
 
   if (columnCount > 2) {
@@ -48,7 +48,7 @@ function removeColumns() {
   }
 }
 
-function addRows() {
+function addColumns() {
   const rows = body.querySelectorAll('tr');
   const rowsElements = rows[0].children.length;
 
@@ -69,7 +69,7 @@ function addRows() {
   }
 }
 
-function removeRows() {
+function removeColumns() {
   const rows = body.querySelectorAll('tr');
   const rowsElements = rows[0].children.length;
 
