@@ -11,6 +11,43 @@ addColumnsBtn.addEventListener('click', addColumns);
 removeRowsBtn.addEventListener('click', removeRows);
 removeColumnsBtn.addEventListener('click', removeColumns);
 
+function addColumns() {
+  const columnCount = body.children.length;
+
+  if (columnCount < 10) {
+    const row = body.querySelector('tr');
+    const rowClone = row.cloneNode(true);
+
+    body.appendChild(rowClone);
+  }
+
+  if (columnCount === 9) {
+    addColumnsBtn.disabled = true;
+  }
+
+  if (removeColumnsBtn.disabled === true) {
+    removeColumnsBtn.disabled = false;
+  }
+}
+
+function removeColumns() {
+  const columnCount = body.children.length;
+
+  if (columnCount > 2) {
+    const row = body.querySelector('tr');
+
+    row.remove();
+  }
+
+  if (columnCount === 3) {
+    removeColumnsBtn.disabled = true;
+  }
+
+  if (addColumnsBtn.disabled === true) {
+    addColumnsBtn.disabled = false;
+  }
+}
+
 function addRows() {
   const rows = body.querySelectorAll('tr');
   const rowsElements = rows[0].children.length;
@@ -48,42 +85,5 @@ function removeRows() {
 
   if (addRowsBtn.disabled === true) {
     addRowsBtn.disabled = false;
-  }
-}
-
-function addColumns() {
-  const columnCount = body.children.length;
-
-  if (columnCount < 10) {
-    const row = body.querySelector('tr');
-    const rowClone = row.cloneNode(true);
-
-    body.appendChild(rowClone);
-  }
-
-  if (columnCount === 9) {
-    addColumnsBtn.disabled = true;
-  }
-
-  if (removeColumnsBtn.disabled === true) {
-    removeColumnsBtn.disabled = false;
-  }
-}
-
-function removeColumns() {
-  const columnCount = body.children.length;
-
-  if (columnCount > 2) {
-    const row = body.querySelector('tr');
-
-    row.remove();
-  }
-
-  if (columnCount === 3) {
-    removeColumnsBtn.disabled = true;
-  }
-
-  if (addColumnsBtn.disabled === true) {
-    addColumnsBtn.disabled = false;
   }
 }
